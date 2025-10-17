@@ -1,0 +1,132 @@
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/CssTotal/review_admin.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <aside id="sidebar" class="sidebar"></aside>
+    <div class="main" id="main">
+        <div id="navbar"></div>
+
+        <div class="content">
+            <h2 style="text-align: center;padding: 20px;">Đánh Giá Sản Phẩm</h2>
+            <div class="product-review-container">
+
+                <!-- THÔNG TIN SẢN PHẨM -->
+                <div class="product-info-card">
+                    <img src="<%= request.getContextPath() %>/media/1.jpg" alt="Ảnh món ăn">
+                    <div class="product-details">
+                        <h3>Test sửa sản phẩm <span class="old-price">78.000 VNĐ</span></h3>
+                        <p><strong>Giá:</strong> <span class="new-price">46.000 VNĐ</span></p>
+                        <p><strong>Mô tả:</strong> Test thêm sản phẩm</p>
+                        <button class="back-button">
+                            <a href="dish_admin.jsp" style="text-decoration: none;color: #fff;">
+                                Quay lại danh sách
+                            </a>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="review-container">
+                    <!-- BỘ LỌC -->
+                    <div class="filter-section">
+                        <div class="filter-left">
+                            <label for="star-filter">Lọc theo số sao:</label>
+                            <select id="star-filter">
+                                <option>Tất cả</option>
+                                <option>5 sao</option>
+                                <option>4 sao</option>
+                                <option>3 sao</option>
+                                <option>2 sao</option>
+                                <option>1 sao</option>
+                            </select>
+                        </div>
+                        <div class="filter-right">
+                            <label><input type="checkbox"> Chưa phản hồi</label>
+                            <button class="btn-filter">Lọc</button>
+                        </div>
+                    </div>
+
+                    <!-- DANH SÁCH ĐÁNH GIÁ -->
+                    <div class="review-table">
+                        <h3>Danh sách đánh giá</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Người dùng</th>
+                                    <th>Đánh giá</th>
+                                    <th>Ngày đánh giá</th>
+                                    <th>Thời gian</th>
+                                    <th>Nội dung</th>
+                                    <th>Phản hồi</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Vanhaicoder</td>
+                                    <td>5 <span class="star">★</span></td>
+                                    <td>17/04/2024</td>
+                                    <td>11:07 am</td>
+                                    <td>ok</td>
+                                    <td>xin cảm ơn!</td>
+                                    <td>
+                                        <div class="action-box">
+                                            <input type="text" placeholder="Nhập phản hồi...">
+                                            <div class="action-buttons">
+                                                <button class="btn-submit">Gửi</button>
+                                                <button class="btn-delete">Xoá</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- Có thể dùng JSTL forEach để lặp đánh giá từ Servlet -->
+                                <%-- 
+                                <c:forEach var="review" items="${reviewList}">
+                                    <tr>
+                                        <td><c:out value="${review.username}"/></td>
+                                        <td><c:out value="${review.star}"/> <span class="star">★</span></td>
+                                        <td><c:out value="${review.date}"/></td>
+                                        <td><c:out value="${review.time}"/></td>
+                                        <td><c:out value="${review.content}"/></td>
+                                        <td><c:out value="${review.reply}"/></td>
+                                        <td>
+                                            <!-- Hành động -->
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                --%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#sidebar").load("<%= request.getContextPath() %>/partials/sidebar_admin.jsp?v=" + Math.random(), function (response, status, xhr) {
+                if (status === "error") {
+                    console.error("Lỗi khi tải sidebar_admin.jsp: " + xhr.status + " " + xhr.statusText);
+                }
+            });
+            $("#navbar").load("<%= request.getContextPath() %>/partials/navbar_admin.jsp?v=" + Math.random(), function (response, status, xhr) {
+                if (status === "error") {
+                    console.error("Lỗi khi tải navbar_admin.jsp: " + xhr.status + " " + xhr.statusText);
+                } else {
+                    $.getScript("<%= request.getContextPath() %>/CssTotal/navbar_admin.js");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

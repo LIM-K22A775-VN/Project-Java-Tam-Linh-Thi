@@ -1,0 +1,97 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CssTotal/standard_admin.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CssTotal/edit_staff_admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+</head>
+
+<body>
+    <%@ include file="partials/sidebar_admin.jsp" %>
+
+    <div class="main" id="main">
+        <%@ include file="partials/navbar_admin.jsp" %>
+
+        <div class="inner-position">
+            <h2>Sửa thông tin</h2>
+            <div class="position-right">
+                <a href="intro.jsp">Trang chủ /</a>
+                <p>Hình ảnh</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="form-header">
+                    <button class="btn-save"><i class="fa fa-save"></i> Lưu</button>
+                    <button class="btn-back">
+                        <a href="library_admin.jsp" style="text-decoration: none; color: #fff;">
+                            <i class="fa fa-arrow-left"></i> Về danh sách
+                        </a>
+                    </button>
+                </div>
+
+                <form action="EditStaffServlet" method="post" enctype="multipart/form-data">
+                    <div class="form-grid">
+                        <div>
+                            <div class="form-group form-image">
+                                <label>Hình</label>
+                                <input type="file" name="image">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Tên ảnh</label>
+                                <input type="text" id="name" name="name" value="<%= request.getAttribute("name") != null ? request.getAttribute("name") : "" %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="slug">Slug</label>
+                                <input type="text" id="slug" name="slug" value="<%= request.getAttribute("slug") != null ? request.getAttribute("slug") : "" %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mo-ta">Mô tả</label>
+                                <textarea id="mo-ta" name="description"><%= request.getAttribute("description") != null ? request.getAttribute("description") : "" %></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="${pageContext.request.contextPath}/static/CssTotal/standard_admin.js"></script>
+
+<script>
+  const Font = Quill.import('formats/font');
+  Font.whitelist = ['sans-serif', 'serif', 'monospace', 'roboto', 'source-sans', 'arial', 'georgia'];
+  Quill.register(Font, true);
+
+  const quill = new Quill('#contentEditor', {
+    theme: 'snow',
+    modules: {
+      toolbar: [
+        [{ 'font': Font.whitelist }],
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'align': [] }],
+        ['link', 'image']
+      ]
+    }
+  });
+
+  quill.on('text-change', function() {
+    document.getElementById('contentInput').value = quill.root.innerHTML;
+  });
+</script>
+</body>
+</html>

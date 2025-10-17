@@ -1,0 +1,153 @@
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản trị</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/CssTotal/standard_admin.css" />
+    <link rel="stylesheet" href="../static/CssTotal/booking_admin.css" />
+    <link rel="stylesheet" href="../static/CssTotal/admin.css" />
+    <link rel="stylesheet" href="../static/CssTotal/standard_admin.css" />
+</head>
+
+<body>
+
+    <!-- include sidebar -->
+    <jsp:include page="partials/sidebar_admin.jsp" />
+
+    <div class="main" id="main">
+
+        <!-- include navbar -->
+        <jsp:include page="partials/navbar_admin.jsp" />
+
+        <div class="inner-position">
+            <h2>Quản lý yêu cầu</h2>
+            <div class="position-right">
+                <a href="/admin">Trang chủ /</a>
+                <p>Yêu cầu</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container">
+                <div class="selection">
+                    <label for="filter">Lọc theo:</label>
+                    <select id="filter" name="filter">
+                        <option value="all">Tất cả</option>
+                        <option value="pending">chờ xử lý</option>
+                        <option value="confirmed">đã liên hệ</option>
+                    </select>
+                    <button class="btn-select" value="find">Lọc</button>
+                </div>
+
+                <div class="table">
+                    <table id="ordersTable" border="1" cellspacing="0" cellpadding="8">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Họ tên</th>
+                                <th>Điện thoại</th>
+                                <th>Nội dung</th>
+                                <th>Ngày gửi</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="c" items="${consultants}" varStatus="loop">
+                                <tr>
+                                    <td>${loop.index + 1}</td>
+                                    <td>${c.userName}</td>
+                                    <td>${c.phone}</td>
+                                    <td>${c.email}</td>
+                                    <td>${c.latestTime}</td>
+                                    <td>chờ xử lý</td>
+                                    <td class="actions" style="min-width: 150px;">
+                                        <button class="btn-view" title="Xem">
+                                            <a href="/detail_consultant_admin?IdUser=${c.idUser}" style="text-decoration: none; color: #fff;">
+                                                <i class="fa fa-eye"></i>
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+
+                    <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Showing 1 to 6 of 7 results</span>
+                        <div style="display: flex; gap: 5px;">
+                            <button style="padding: 5px 10px; background-color: #e9ecef; color: #333; border: none; border-radius: 3px;">‹</button>
+                            <button style="padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 3px;">1</button>
+                            <button style="padding: 5px 10px; background-color: #e9ecef; color: #333; border: none; border-radius: 3px;">2</button>
+                            <button style="padding: 5px 10px; background-color: #e9ecef; color: #333; border: none; border-radius: 3px;">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/CssTotal/standard_admin.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const filterBtn = document.querySelector(".btn-select");
+      const filterSelect = document.getElementById("filter");
+      const rows = document.querySelectorAll("#ordersTable tbody tr");
+
+      filterBtn.addEventListener("click", function () {
+        const filterValue = filterSelect.value;
+
+        rows.forEach(row => {
+          const statusCell = row.querySelector("td:nth-child(6)");
+          const statusText = statusCell ? statusCell.textContent.trim() : "";
+
+          if (filterValue === "all" || statusText === getStatusText(filterValue)) {
+            row.style.display = "";
+          } else {
+            row.style.display = "none";
+          }
+        });
+      });
+
+      function getStatusText(value) {
+        switch (value) {
+          case "pending": return "chờ xử lý";
+          case "confirmed": return "đã liên hệ";
+          default: return "";
+        }
+      }
+    });
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userInfo = document.getElementById("userInfo");
+        const userDropdown = document.getElementById("userDropdown");
+
+        userDropdown.style.display = "none";
+
+        userInfo.addEventListener("click", function (e) {
+            e.stopPropagation();
+            if (userDropdown.style.display === "none") {
+                userDropdown.style.display = "block";
+            } else {
+                userDropdown.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function () {
+            userDropdown.style.display = "none";
+        });
+    });
+    </script>
+
+</body>
+</html>
