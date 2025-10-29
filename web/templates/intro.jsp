@@ -51,9 +51,9 @@
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Ảnh 1"></div>
-            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/5.jpg" alt="Ảnh 2"></div>
-            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Ảnh 3"></div>
-            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Ảnh 4"></div>
+            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/6.jpg" alt="Ảnh 2"></div>
+            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/3.jpg" alt="Ảnh 3"></div>
+            <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/4.jpg" alt="Ảnh 4"></div>
             <div class="swiper-slide"><img src="${pageContext.request.contextPath}/static/avatars/media/5.jpg" alt="Ảnh 5"></div>
         </div>
         <div class="swiper-button-next"></div>

@@ -60,7 +60,7 @@
 
     <!-- Banner -->
     <div class="banner-body">
-        <h1>TheRiceBowl</h1>
+        <h1>Túi Xách Hàng Hiệu</h1>
         <p>Chúng tôi luôn sẵn sàng lắng nghe ý kiến của bạn</p>
     </div>
 
@@ -69,9 +69,9 @@
         <!-- Left box -->
         <div class="left-box">
             <h2>Cửa hàng chính</h2>
-            <p>TheRiceBowl luôn bảo đảm về chất lượng cũng như an toàn thực phẩm.</p>
+            <p>Cửa hàng chúng tôi luôn bảo đảm về chất lượng cũng như an toàn thực phẩm.</p>
 
-            <div class="info-item"><i>📍</i> Hẻm 30, An Khánh, Ninh Kiều, Cần Thơ</div>
+            <div class="info-item"><i>📍</i> Ngõ 419, Lĩnh Nam, Hà Nội</div>
             <div class="info-item"><i>📧</i> devrestaurant@gmail.com</div>
             <div class="info-item"><i>📞</i> (84)0123.456.789</div>
             <div class="info-item"><i>⏰</i> Các ngày trong tuần 7:00am - 22:00pm</div>

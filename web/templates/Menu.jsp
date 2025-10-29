@@ -4,7 +4,6 @@
 
 <!DOCTYPE html>
 <html lang="vi">
-
 <head>
   <meta charset="UTF-8">
   <title>Thực Đơn</title>
@@ -32,8 +31,8 @@
 </head>
 
 <body>
-    <jsp:include page="/partials/header.jsp" />
-    <jsp:include page="/partials/vitri.jsp" />
+  <jsp:include page="/partials/header.jsp" />
+  <jsp:include page="/partials/vitri.jsp" />
 
   <div class="section-one">
     <div class="inner-wrap">
@@ -41,6 +40,7 @@
       <!-- Bộ lọc -->
       <div class="inner-chon">
         <div class="inner-danhmuc">
+          <div>${user.id}</div>
           <h3>Danh Mục</h3>
           <input type="radio" name="danhmuc" value="Tất cả" checked> Tất cả<br>
           <input type="radio" name="danhmuc" value="Khai vị"> Khai vị<br>
@@ -97,25 +97,25 @@
               </div>
               <div class="food-info">
                 <h3 class="food-name">${food.name} <span class="label-new">Mới</span></h3>
-                <div class="food-slug"><c:out value="${fn:toLowerCase(food.name).replace(' ','-')}"/></div>
+                <div class="food-slug"><c:out value="${fn:replace(fn:toLowerCase(food.name), ' ', '-')}"/></div>
                 <div class="food-tags"><span class="tag">${food.brand}</span></div>
                 <div class="food-category">${food.category}</div>
               </div>
               <div class="food-action">
                 <div class="food-price">
-                  <span class="price-old"><c:out value="${food.orig_price}"/> VND</span>
+                  <span class="price-old"><c:out value="${food.origPrice}"/> VND</span>
                   <span class="price-new"><c:out value="${food.price}"/> VND</span>
                 </div>
                 <div class="food-action-row">
                   <button class="btn-cart" data-name="${food.name}">
                     <c:choose>
-                      <c:when test="${food.in_cart}">Đã có trong giỏ hàng</c:when>
+                      <c:when test="${food.inCart}">Đã có trong giỏ hàng</c:when>
                       <c:otherwise>Thêm vào giỏ hàng</c:otherwise>
                     </c:choose>
                   </button>
                   <div class="food-icons">
                     <button class="icon-btn btn-love" data-name="${food.name}">
-                      <i class="fa fa-heart <c:if test='${food.in_favorite}'>active</c:if>'"></i>
+                      <i class="fa fa-heart <c:if test='${food.inFavorite}'>active</c:if>'"></i>
                     </button>
                   </div>
                 </div>
@@ -129,7 +129,7 @@
 
   <jsp:include page="/partials/footer.jsp"/>
 
-  <!-- JS: Lọc, yêu thích, giỏ hàng, tư vấn -->
+  <!-- JS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const applyButton = document.querySelector('.button-one');
@@ -229,6 +229,5 @@
 
   <script src="<c:url value='/static/js/tuvan.js'/>"></script>
   <script> const userEmail = "${sessionScope.user_email}"; </script>
-
 </body>
 </html>

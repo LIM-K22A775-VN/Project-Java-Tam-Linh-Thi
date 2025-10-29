@@ -6,7 +6,7 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nhà hàng</title>
+        <title>Shop Túi Xách</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/static/CssTotal/main.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css" />
@@ -41,7 +41,7 @@
             <div class="navbar">
                 <div class="navbar_item"><a href="trangchu.jsp">Trang chủ</a></div>
                 <div class="navbar_item"><a href="refarral.jsp">Giới thiệu</a></div>
-                <div class="navbar_item"><a href="Menu.jsp">Thực đơn</a></div>
+                <div class="navbar_item"><a href="Menu.jsp">Sản Phẩm</a></div>
                 <div class="navbar_item"><a href="article.jsp">Bài viết</a></div>
                 <div class="navbar_item"><a href="gallery.jsp">Hình ảnh</a></div>
                 <div class="navbar_item"><a href="contact.jsp">Liên hệ</a></div>
@@ -94,8 +94,8 @@
                     <i class="fa-solid fa-hand-holding-heart"></i>
                 </div>
                 <div class="promise-text">
-                    <h4>Bảo hiểm món ăn</h4>
-                    <p>Đảm chất lượng đồ ăn</p>
+                    <h4>Bảo hiểm sản phẩm</h4>
+                    <p>Đảm chất lượng túi xách</p>
                 </div>
             </div>
             <div class="promise-item">
@@ -118,25 +118,30 @@
             </div>
         </div>
         <div class="food-suggestion">
-            <div class="food-title">Ăn Gì Hôm Nay</div>
+            <div class="food-title">Mua Túi Gì Hôm Nay</div>
             <input type="text" class="food-input-box" placeholder="Tìm kiếm">
             <div class="food-options">
-                <button class="food-option-btn">Tùy chọn bữa hôm nay</button>
-                <button class="food-option-btn">Cơm</button>
-                <button class="food-option-btn">Salad rau muống sợi cam</button>
-                <button class="food-option-btn">Phở cuốn</button>
-                <button class="food-option-btn">Gỏi táo hoa chuối</button>
-                <button class="food-option-btn">Gà cuốn lá dứa</button>
-                <button class="food-option-btn">Hủ tiếu cháo bò</button>
-                <button class="food-option-btn">Cơm chiên chả lá lìm</button>
+                <button class="food-option-btn">Tùy chọn</button>
+                <button class="food-option-btn">Túi xách da cao cấp</button>
+                <button class="food-option-btn">Túi tote canvas</button>
+                <button class="food-option-btn">Túi đeo chéo mini</button>
+                <button class="food-option-btn">Túi cầm tay dự tiệc</button>
+                <button class="food-option-btn">Balo thời trang nữ</button>
+                <button class="food-option-btn">Túi đeo vai Hàn Quốc</button>
+                <button class="food-option-btn">Túi công sở da bò</button>
+
             </div>
         </div>
         <div class="intro-standard">
             <div class="standard-text">
 
-                <h3>TheRiceBowlRestaurant</h3>
-                <p>Thưởng thức ẩm thực đỉnh cao tại nhà hàng của chúng tôi luôn đặt cái tâm trong công việc, chúng tôi luôn
-                    sẵn sàng phục vụ, chúng tôi luôn sẵn sàng phục vụ các bạn.Tiêu chí nhà hàng được chúng tôi để tâm</p>
+                <h3>T_L_T_Restaurant</h3>
+                <p>
+                    Tôn vinh vẻ đẹp thanh lịch và đẳng cấp qua từng chiếc túi xách được chế tác tinh xảo. 
+                    Mỗi sản phẩm của chúng tôi không chỉ là phụ kiện, mà là tuyên ngôn phong cách dành cho người phụ nữ hiện đại — 
+                    sang trọng, tự tin và khác biệt.
+                </p>
+
                 <div class="grid-container">
                     <div class="grid-item">
                         <i class="fas fa-user"></i>
@@ -161,21 +166,21 @@
             </div>
         </div>
         <div class="food-section">
-            <h2>Một số món ăn phổ biến theo thực đơn của nhà hàng</h2>
+            <h2>Một số sản phẩm túi sách phổ biến của nhà hàng</h2>
             <div class="filter-buttons">
-                <button class="filter-btn active" data-category="all">Khái vị</button>
-                <button class="filter-btn" data-category="main">Món chính</button>
-                <button class="filter-btn" data-category="soup">Canh - Trộn - Súp</button>
-                <button class="filter-btn" data-category="dessert">Món chè</button>
-                <button class="filter-btn" data-category="drink">Bánh tráng miệng</button>
-                <button class="filter-btn" data-category="other">Đồ uống</button>
+                <button class="filter-btn active" data-category="all">Tất cả</button>
+                <button class="filter-btn" data-category="main">Túi xách tay</button>
+                <button class="filter-btn" data-category="soup">Túi đeo vai</button>
+                <button class="filter-btn" data-category="dessert">Túi đeo chéo</button>
+                <button class="filter-btn" data-category="drink">Túi cầm tay</button>
+                <button class="filter-btn" data-category="other">Balo thời trang</button>
             </div>
             <div class="food-grid" id="foodGrid">
 
             </div>
         </div>
         <div class="new-dishes-section">
-            <h2>Những món ăn mới</h2>
+            <h2>Những sản phẩm mới</h2>
             <div class="new-dishes-scroll" id="newDishesScroll">
                 <div class="food-item">
                     <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Salad rau muống sợi cam">
@@ -183,65 +188,55 @@
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Gỏi táo hoa chuối">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/3.jpg" alt="Gỏi táo hoa chuối">
                     <p>-11% 120.000 VND <span>135.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Sụn gà xóc muối Tứ Ninh">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/3.jpg" alt="Sụn gà xóc muối Tứ Ninh">
                     <p>-18% 135.000 VND <span>165.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Nem lụi nướng mỡ">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/4.jpg" alt="Nem lụi nướng mỡ">
                     <p>-12% 158.000 VND <span>179.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Mì spaghetti sốt kem nấm">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/5.jpg" alt="Mì spaghetti sốt kem nấm">
                     <p>-29% 99.000 VND <span>140.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Cơm chiên hải sản">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/6.jpg" alt="Cơm chiên hải sản">
                     <p>-25% 90.000 VND <span>120.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Salad rau muống sợi cam">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/anh1.jpg" alt="Salad rau muống sợi cam">
                     <p>-24% 68.000 VND <span>89.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Gỏi táo hoa chuối">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/anh2.jpg" alt="Gỏi táo hoa chuối">
                     <p>-11% 120.000 VND <span>135.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Sụn gà xóc muối Tứ Ninh">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/anh3.jpg" alt="Sụn gà xóc muối Tứ Ninh">
                     <p>-18% 135.000 VND <span>165.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
                 <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Nem lụi nướng mỡ">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/anh4.jpg" alt="Nem lụi nướng mỡ">
                     <p>-12% 158.000 VND <span>179.000 VND</span></p>
-                    <button class="detail-btn">Xem chi tiết</button>
-                </div>
-                <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Mì spaghetti sốt kem nấm">
-                    <p>-29% 99.000 VND <span>140.000 VND</span></p>
-                    <button class="detail-btn">Xem chi tiết</button>
-                </div>
-                <div class="food-item">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Cơm chiên hải sản">
-                    <p>-25% 90.000 VND <span>120.000 VND</span></p>
                     <button class="detail-btn">Xem chi tiết</button>
                 </div>
             </div>
         </div>
         <div class="register-form">
-            <h3>Đặt bàn</h3>
-            <h2>Lên lịch đặt bàn</h2>
+            <h3>Đặt túi xách</h3>
+            <h2>Lên lịch xem túi trực tiếp  </h2>
             <div id="form-container">
                 <div class="form-group">
                     <input type="text" placeholder="Tên của bạn">
@@ -290,51 +285,54 @@
 
         </div>
         <div class="latest-news-section">
-            <h2>Bản tin tức mới nhất</h2>
+            <h2>Tin tức mới nhất về túi xách</h2>
             <div class="news-scroll" id="newsScroll">
                 <div class="news-item" data-article-id="1">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Món ăn 1">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Túi xách 1">
                     <p class="date">18:04, 19-06-2024</p>
-                    <p>Mách bạn cách nấu món ăn ngon</p>
+                    <p>Bộ sưu tập túi xách xuân hè mới nhất 2024</p>
                 </div>
                 <div class="news-item" data-article-id="2">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Món ăn 2">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/2.jpg" alt="Túi xách 2">
                     <p class="date">08:44, 29-12-2024</p>
-                    <p>Tuyển tập món xào ngon, tiết kiệm thời gian cho ngày cuối tuần</p>
+                    <p>Top 5 mẫu túi đeo vai sang trọng được yêu thích nhất</p>
                 </div>
                 <div class="news-item" data-article-id="3">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Món ăn 3">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/3.jpg" alt="Túi xách 3">
                     <p class="date">09:07, 29-12-2024</p>
-                    <p>Hé lộ cách làm món ngon, tiết kiệm thời gian cho ngày cuối tuần</p>
+                    <p>Khám phá phong cách túi xách tối giản nhưng đẳng cấp</p>
                 </div>
                 <div class="news-item" data-article-id="4">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Món ăn 4">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/4.jpg" alt="Túi xách 4">
                     <p class="date">13:55, 20-02-2025</p>
-                    <p>1001 món ngon ngày Tết - Gợi ý món ngon</p>
+                    <p>BST túi da cao cấp – điểm nhấn cho mọi outfit</p>
                 </div>
                 <div class="news-item" data-article-id="5">
-                    <img src="${pageContext.request.contextPath}/static/avatars/media/1.jpg" alt="Món ăn 5">
+                    <img src="${pageContext.request.contextPath}/static/avatars/media/5.jpg" alt="Túi xách 5">
                     <p class="date">13:59, 21-06-2025</p>
-                    <p>Cách làm món ngon</p>
+                    <p>Gợi ý túi xách phù hợp cho từng phong cách thời trang</p>
                 </div>
             </div>
         </div>
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-left">
-                    <h3>Nhà hàng Lẩu 3 Tay anh BÌNH TÂM LINH gây dựng</h3>
-                    <p>Nhà hàng chuyên về các món lẩu ngon nhất tại Hà Nội, chuyên về các món ăn chuẩn hương vị thuần Việt.</p>
-                </div>
-                <div class="footer-right">
-                    <h3>Thông tin liên hệ</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Lĩnh Nam, Hà Nội</p>
-                    <p><i class="fas fa-phone"></i> Điện thoại: 0999999999</p>
-                    <p><i class="fas fa-envelope"></i> Email: dabc@gmail.com</p>
-                </div>
-            </div>
-        </footer>
 
-        <script>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h3>Cửa Hàng Túi Hàng Hiệu</h3>
+                <p>Thương hiệu chuyên về các dòng túi xách cao cấp, thiết kế tinh tế, tôn vinh phong cách thanh lịch và hiện đại.</p>
+
+            </div>
+            <div class="footer-right">
+                <h3>Thông tin liên hệ</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Địa chỉ: Lĩnh Nam, Hà Nội</p>
+                <p><i class="fas fa-phone"></i> Điện thoại: 0999999999</p>
+                <p><i class="fas fa-envelope"></i> Email: dabc@gmail.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
             const contextPath = "<%= request.getContextPath()%>";
             const userEmail = "<%= session.getAttribute("user_email") != null ? session.getAttribute("user_email") : ""%>";
 
@@ -363,7 +361,7 @@
                     }
                 }
             });
-        </script>
+    </script>
 
-    </body>
+</body>
 </html>
