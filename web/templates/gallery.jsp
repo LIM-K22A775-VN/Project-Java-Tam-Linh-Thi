@@ -36,20 +36,20 @@
         <section class="gallery">
             <h2>Thư Viện Ảnh</h2>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh10.jpg' />" alt="Ảnh 1"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh11.jpg' />" alt="Ảnh 2"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh13.jpg' />" alt="Ảnh 3"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh14.jpg' />" alt="Ảnh 4"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh15.jpg' />" alt="Ảnh 5"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh16.jpg' />" alt="Ảnh 6"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh17.jpg' />" alt="Ảnh 7"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh18.jpg' />" alt="Ảnh 8"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh19.jpg' />" alt="Ảnh 9"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh20.jpg' />" alt="Ảnh 10"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh21.jpg' />" alt="Ảnh 11"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh22.jpg' />" alt="Ảnh 12"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/1.jpg' />" alt="Ảnh 1"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/2.jpg' />" alt="Ảnh 2"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/3.jpg' />" alt="Ảnh 3"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/4.jpg' />" alt="Ảnh 4"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/5.jpg' />" alt="Ảnh 5"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/6.jpg' />" alt="Ảnh 6"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh1.jpg' />" alt="Ảnh 7"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh2.jpg' />" alt="Ảnh 8"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh3.jpg' />" alt="Ảnh 9"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh4.jpg' />" alt="Ảnh 10"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh20.jpg' />" alt="Ảnh 11"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh6.jpg' />" alt="Ảnh 12"></div>
             </div>
-        </section>
+        </section>  
     </div>
 
     <!-- Footer -->
