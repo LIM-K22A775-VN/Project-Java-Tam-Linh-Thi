@@ -61,7 +61,7 @@
     <!-- Banner -->
     <div class="banner-body">
         <h1>Túi Xách Hàng Hiệu</h1>
-        <p>Chúng tôi luôn sẵn sàng lắng nghe ý kiến của bạn</p>
+        <div class ="meet"><p>Chúng tôi luôn sẵn sàng lắng nghe ý kiến của bạn</p></div>
     </div>
 
     <!-- Container -->

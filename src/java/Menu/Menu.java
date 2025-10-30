@@ -8,7 +8,7 @@ import java.util.Map;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
-import model.Food;
+import model.Bag;
 import model.DatabaseConnection;
 
 @WebServlet("/Menu")
@@ -31,16 +31,19 @@ public class Menu extends HttpServlet {
         }
         String userId = (String) userInfo.get("id"); // Lấy user_id từ Map
 
-        List<Food> foods = new ArrayList<>();
+        List<Bag> bags = new ArrayList<>();
 
-        String sql = "SELECT f.nameFood, f.style, f.category, f.price, f.orig_price, f.image, "
-                + "CASE WHEN fy.id IS NOT NULL THEN 1 ELSE 0 END AS in_favorite, "
-                + "CASE WHEN c.id IS NOT NULL THEN 1 ELSE 0 END AS in_cart "
-                + "FROM food_thucdon ft "
-                + "JOIN food f ON ft.idFood = f.IdFood "
-                + "LEFT JOIN food_yeuthich fy ON f.nameFood = fy.food_name AND fy.IdUser = ? "
-                + "LEFT JOIN cart c ON f.nameFood = c.food_name AND c.IdUser = ? "
-                + "ORDER BY ft.idFood ASC";
+        String sql = "SELECT b.IdBag, b.nameBag, b.brand, b.category, b.price, b.orig_price, b.image, "
+           + "CASE WHEN fy.IdBag IS NOT NULL THEN 1 ELSE 0 END AS in_favorite, "
+           + "CASE WHEN c.IdBag IS NOT NULL THEN 1 ELSE 0 END AS in_cart "
+           + "FROM bags b "
+           + "LEFT JOIN bags_yeuthich fy ON b.IdBag = fy.IdBag AND fy.IdUser = ? "
+           + "LEFT JOIN cart c ON b.IdBag = c.IdBag AND c.IdUser = ? "
+           + "ORDER BY b.IdBag ASC";
+
+
+
+
 
         try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -49,24 +52,18 @@ public class Menu extends HttpServlet {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
-                    Food food = new Food();
-                    food.setName(rs.getString("nameFood"));
-                    food.setBrand(rs.getString("style"));
-                    food.setCategory(rs.getString("category"));
-                    food.setPrice(rs.getDouble("price"));
-                    food.setOrigPrice(rs.getDouble("orig_price"));
-                    food.setImg(rs.getString("image"));
-                    food.setInFavorite(rs.getInt("in_favorite") == 1);
-                    food.setInCart(rs.getInt("in_cart") == 1);
-                    foods.add(food);
-                    // Hiển thị thông tin food trên console
-                    System.out.println("Tên món: " + food.getName()
-                            + ", Thương hiệu: " + food.getBrand()
-                            + ", Loại: " + food.getCategory()
-                            + ", Giá: " + food.getPrice()
-                            + ", Giá gốc: " + food.getOrigPrice()
-                            + ", Yêu thích: " + food.isInFavorite()
-                            + ", Trong giỏ: " + food.isInCart());
+                    Bag bag = new Bag();
+                    bag.setName(rs.getString("nameBag"));
+                    bag.setBrand(rs.getString("brand"));
+                    bag.setCategory(rs.getString("category"));
+                    bag.setPrice(rs.getDouble("price"));
+                    bag.setOrigPrice(rs.getDouble("orig_price"));
+                    bag.setImg(rs.getString("image"));
+                    bag.setInFavorite(rs.getInt("in_favorite") == 1);
+                    bag.setInCart(rs.getInt("in_cart") == 1);
+                    bag.setId(rs.getString("IdBag"));
+                    System.out.println(bag);
+                    bags.add(bag);
                 }
             }
 
@@ -77,8 +74,7 @@ public class Menu extends HttpServlet {
 
         // Set thông tin người dùng và danh sách món cho JSP
         request.setAttribute("user", userInfo);
-        request.setAttribute("foods", foods);
-        request.setAttribute("breadcrumb", "Thực đơn");
+        request.setAttribute("bags", bags);
 
         request.getRequestDispatcher("/templates/Menu.jsp").forward(request, response);
     }

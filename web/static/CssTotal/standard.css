@@ -1,12 +1,4 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : Jun 28, 2025, 9:10:41 PM
-    Author     : ASUS
-*/
-/*header*/
+/* ===== Reset cơ bản ===== */
 * {
     margin: 0;
     padding: 0;
@@ -14,93 +6,102 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    background-color: #f0f8ff; /* nền nhạt xanh */
 }
 
+/* ===== Header ===== */
 .header {
     width: 100%;
     height: 70px;
-    background-color: #333;
-    color: white;
-    padding: 5px 0;
+    background-color: #D6CDC3;
+    color: #1a1a1a;
+    padding: 5px 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-sizing: border-box;
-    font-size: 12px;
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background 0.3s;
 }
 
 .logo{
     width: 150px;
     height: 90px;
-    border-radius:  0 0 10px 10px;
-    z-index: 100;
+    object-fit: contain;
 }
 
+/* Navbar */
 .navbar {
-    padding-top: 5px;
-    margin-top: 17px;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
+
 .navbar_item a {
-    color: white;
+    color: #2C2319;
     text-decoration: none;
-    margin-right: 20px;
-    font-weight: 500;
-}
-.navbar_right {
-    padding-top: 5px;
-    margin-top:-3px;
-    display: flex;
-    gap: 10px;
-    
-}
-/*inner*/
-.inner-position {
-    display: flex;
-    margin-top: 100px;
-    background-color: #fff;
-    height: 20px;
+    font-weight: 600;
+    padding: 5px 0;
     position: relative;
-    padding-left: 8px;
-    font-weight: bold;
+    transition: all 0.3s ease;
 }
-.inner-position a{
-    text-decoration: none;
+
+.navbar_item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: #2C2319; /* gạch dưới */
+    transition: width 0.3s ease;
 }
-/*account*/
+
+.navbar_item a :hover {
+    color: white;
+}
+
+.navbar_item a:hover::after {
+    width: 100%;
+}
+
+/* Navbar right */
+.navbar_right {
+    display: flex;
+    gap: 15px;
+}
+
+/* Account dropdown */
 .account-dropdown {
     position: relative;
     display: inline-block;
 }
+
 .account-toggle {
     display: flex;
-    gap:2px;
+    gap:4px;
     cursor: pointer;
-    margin-right: 20px;
+    align-items: center;
 }
-.account-toggle i{
-    margin-top: 1px;
-}
+
 .dropdown-menu {
     position: absolute;
-    top: 50%;
+    top: 100%;
     right: 0;
-    background-color: white;
+    background-color: #d6cdc3;
     border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     list-style: none;
     padding: 10px 0;
-    margin-top: 6px;
     display: none;
     min-width: 180px;
     z-index: 999;
-    color: black;
+    color: #1a1a1a;
 }
 
 .dropdown-menu li {
@@ -108,20 +109,22 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: background-color 0.2s ease;
+    transition: background 0.3s ease;
     cursor: pointer;
-}
-.dropdown-menu li a{
-    text-decoration: none;
-    color:black;
+    border-radius: 4px;
 }
 
 .dropdown-menu li:hover {
-    background-color: #f2f2f2;
+    background-color: #8E8882;
+    color: #000;
 }
-/* fixed icon*/
 
+.dropdown-menu li a {
+    color: inherit;
+    text-decoration: none;
+}
 
+/* ===== Chat icon ===== */
 .chat-fixed-icons {
     position: fixed;
     bottom: 60px;
@@ -133,11 +136,10 @@ body {
 }
 
 .chat-icon {
-    position: relative;
     width: 50px;
     height: 50px;
-    background-color: #1877f2;
-    color: white;
+    background-color: #00bfff;
+    color: #fff;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -145,44 +147,24 @@ body {
     font-size: 22px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .chat-icon:hover {
     transform: scale(1.1);
+    background-color: #D6CDC3;
 }
-/* .chat-tooltip {
-    position: absolute;
-    
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #333;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease;
-    font-size: 14px;
-    animation: showTooltip 8s ease-in-out infinite;
-} */
 
-.instagram-icon {
-    background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf, #4f5bd5);
-    color: white;
-}
-/*footer*/
+/* ===== Footer ===== */
 .footer {
     text-align: center;
-    padding: 20px;
-    background-color: #000;
-    color: #fff;
     padding: 40px 20px;
+    background-color: #D6CDC3; /* xanh nhạt */
+    color: #1a1a1a;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer-container {
@@ -201,17 +183,19 @@ body {
 .footer-left h3, .footer-right h3 {
     font-size: 18px;
     margin-bottom: 15px;
+    color: #004080;
 }
 
-.footer-left p {
+.footer-left p, .footer-right p {
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 10px;
+    color: #004080;
 }
 
 .footer-facebook {
     display: inline-block;
-    background-color: #3b5998;
+    background-color: #00bfff;
     color: #fff;
     padding: 8px 15px;
     text-decoration: none;
@@ -219,21 +203,12 @@ body {
     font-size: 14px;
 }
 
-.footer-right p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    margin-left: 210px;
-    display: flex;
-    align-items: center;
-}
-
-.footer-right p i {
-    margin-right: 10px;
-
+.footer-facebook:hover {
+    background-color: #D6CDC3;
 }
 
 .footer-book-now {
-    background-color: #ff0000;
+    background-color: #846B4D;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -244,20 +219,38 @@ body {
 }
 
 .footer-book-now:hover {
-    background-color: #cc0000;
-}
-
-.footer-social {
-    margin-top: 15px;
+    background-color: white;
+    color : #846B4D;
 }
 
 .footer-social a {
-    color: #fff;
+    color: #004080;
     font-size: 20px;
     margin-right: 10px;
     text-decoration: none;
 }
 
 .footer-social a:hover {
-    color: #ccc;
+    color: #00bfff;
+}
+
+
+.food-section h2 {
+    margin-top: 20px;
+}
+.register-form {
+    width: 100%;
+    height: 500px;
+    background-image: url(${pageContext.request.contextPath}/static/avatars/media/backfood.jpg);
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    padding: 30px;
+    margin-bottom: 30px;
+    
+}
+.navbar_right {
+    margin-top: -3px;
+    justify-content: center;
+    align-items: center;
 }

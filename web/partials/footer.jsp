@@ -23,7 +23,7 @@
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-left">
-                    <h3>Cửa hàng Túi Xách BÌNH TÂM Thi</h3>
+                    <h3>Cửa hàng Túi Xách</h3>
                     <p>Chuyên cung cấp các mẫu túi xách thời trang cao cấp, đa dạng phong cách từ thanh lịch đến năng động.</p>
                     <p>Chất liệu được chọn lọc kỹ lưỡng, đường may tinh tế và thiết kế hiện đại — mang đến cho bạn sự tự tin và đẳng cấp trong từng chi tiết.</p>
                 </div>

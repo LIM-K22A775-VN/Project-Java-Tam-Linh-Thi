@@ -24,14 +24,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     margin-top: 20px;
 }
-.banner-body h1,p{
+.banner-body h1,p {
     text-align: center;
     font-weight: bold;
+    color : #f60;
+
 }
+
 .banner-body h1{
     margin-bottom: 10px;
     color: #f60;
 }
+
 .left-box {
     background-color: #1d2939;
     color: #ffffff;

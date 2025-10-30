@@ -1,5 +1,8 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <style>
+        
+        </style>
     <!-- ✅ CHAT TƯ VẤN -->
     <div class="support-widget">
         <div class="support-header hidden">Chuyên viên tư vấn</div>
@@ -40,7 +43,7 @@
 
         <div class="navbar_right">
             <div class="navbar_item navbar_item_right">
-                <a href="<c:url value='reserve.jsp' />">
+                <a href="<c:url value='/templates/reserve.jsp' />">
                     <i class="fa-solid fa-calendar-check navbar_icon"></i>
                     Đặt bàn
                 </a>

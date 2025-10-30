@@ -161,7 +161,7 @@ textarea {
   resize: vertical;
 }
 
-/* Nút gửi & clear ảo ma */
+/* Nút gửi & clear */
 #send-chat,
 #clear-chat {
   border: none;

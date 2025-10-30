@@ -46,8 +46,8 @@
                 <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh2.jpg' />" alt="Ảnh 8"></div>
                 <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh3.jpg' />" alt="Ảnh 9"></div>
                 <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh4.jpg' />" alt="Ảnh 10"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh20.jpg' />" alt="Ảnh 11"></div>
-                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh6.jpg' />" alt="Ảnh 12"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh1.jpg' />" alt="Ảnh 11"></div>
+                <div class="gallery-item"><img src="<c:url value='/static/avatars/media/anh2.jpg' />" alt="Ảnh 12"></div>
             </div>
         </section>  
     </div>
