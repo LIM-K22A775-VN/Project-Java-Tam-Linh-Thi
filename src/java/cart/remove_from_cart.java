@@ -14,16 +14,16 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@WebServlet(name = "add_to_favorite", urlPatterns = {"/add_to_favorite"})
-public class add_to_favorite extends HttpServlet {
+@WebServlet(name = "remove_from_cart", urlPatterns = {"/remove_from_cart"})
+public class remove_from_cart extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         // Đặt content type
         response.setContentType("text/plain;charset=UTF-8");
-        
+
         // Lấy user từ session
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
@@ -52,43 +52,28 @@ public class add_to_favorite extends HttpServlet {
             return;
         }
 
-        // Thêm vào danh sách yêu thích
-        String checkSql = "SELECT 1 FROM bags_yeuthich WHERE IdUser = ? AND IdBag = ?";
-        String insertSql = "INSERT INTO bags_yeuthich (IdUser, IdBag) VALUES (?, ?)";
+        String deleteSql = "DELETE FROM cart WHERE IdUser = ? AND IdBag = ?";
 
-        try (Connection conn = DatabaseConnection.getConnection()) {
+        try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement ps = conn.prepareStatement(deleteSql)) {
 
-            // Kiểm tra đã có trong yêu thích chưa
-            try (PreparedStatement ps = conn.prepareStatement(checkSql)) {
-                ps.setString(1, user.getIdUser());
-                ps.setString(2, idBag);
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        response.getWriter().write("Đã có trong danh sách yêu thích!");
-                        return;
-                    }
-                }
+            ps.setString(1, user.getIdUser());
+            ps.setString(2, idBag);  // xóa 1 sản phẩm cụ thể
+            int rowsAffected = ps.executeUpdate();
+
+            if (rowsAffected > 0) {
+                response.setStatus(HttpServletResponse.SC_OK);
+                response.getWriter().write("{\"message\":\"Đã xóa sản phẩm khỏi giỏ hàng!\"}");
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                response.getWriter().write("{\"message\":\"Sản phẩm không tồn tại trong giỏ hàng.\"}");
             }
 
-            // Thêm vào bảng
-            try (PreparedStatement ps = conn.prepareStatement(insertSql)) {
-                ps.setString(1, user.getIdUser());
-                ps.setString(2, idBag);
-                ps.executeUpdate();
-            }
-
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().write("{\"message\":\"Đã thêm vào danh sách yêu thích!\"}");
-
-
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("Lỗi khi thêm yêu thích!");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(add_to_favorite.class.getName()).log(Level.SEVERE, null, ex);
+            response.getWriter().write("{\"message\":\"Lỗi khi xóa sản phẩm khỏi giỏ hàng!\"}");
         }
+
     }
 
     @Override

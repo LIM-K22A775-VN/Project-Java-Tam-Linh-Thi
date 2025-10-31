@@ -1,8 +1,8 @@
-package Model;
+package model;
 
 public class User {
     private String idUser;
-    private String userName;
+    private String username;   // đổi userName → username
     private String email;
     private String password;
     private String address;
@@ -17,11 +17,11 @@ public class User {
     public User() {
     }
 
-    public User(String idUser, String userName, String email, String password, String address,
+    public User(String idUser, String username, String email, String password, String address,
                 String gender, String faceID, String phone, String role,
                 String avatar, double totalSpent, int points) {
         this.idUser = idUser;
-        this.userName = userName;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.address = address;
@@ -42,12 +42,12 @@ public class User {
         this.idUser = idUser;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {   // đổi tên getter cho đúng với JSP
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {  // đổi setter luôn
+        this.username = username;
     }
 
     public String getEmail() {
@@ -132,6 +132,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "{role=" + role + ", id=" + idUser + ", avatar=" + avatar + ", username=" + userName + "}";
+        return "{role=" + role + ", id=" + idUser + ", avatar=" + avatar + ", username=" + username + "}";
     }
 }

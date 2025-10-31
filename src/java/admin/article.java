@@ -58,17 +58,18 @@ public class article extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
+
         // Lấy thông tin người dùng từ session
-        @SuppressWarnings("unchecked")
-        Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute("user");
+        model.User user = (model.User) session.getAttribute("user");
 
         // Nếu chưa đăng nhập -> chuyển về trang login
-        if (userInfo == null || userInfo.get("id") == null) {
+        if (user == null || user.getIdUser() == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
+        // Chuyển tới trang article
         request.getRequestDispatcher("/templates/article.jsp").forward(request, response);
     }
 

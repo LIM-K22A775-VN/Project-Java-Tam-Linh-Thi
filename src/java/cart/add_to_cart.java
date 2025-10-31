@@ -23,15 +23,15 @@ public class add_to_cart extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-        @SuppressWarnings("unchecked")
-        Map<String, Object> userInfo = (Map<String, Object>) session.getAttribute("user");
 
-        if (userInfo == null || userInfo.get("id") == null) {
+        // Lấy thông tin người dùng từ session
+        model.User user = (model.User) session.getAttribute("user");
+
+        // Nếu chưa đăng nhập -> chuyển về trang login
+        if (user == null || user.getIdUser() == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        String userId = (String) userInfo.get("id");
-
         // đọc JSON từ request
         BufferedReader reader = request.getReader();
         StringBuilder sb = new StringBuilder();
@@ -53,22 +53,23 @@ public class add_to_cart extends HttpServlet {
             JSONObject resJson = new JSONObject();
 
             try (PreparedStatement psCheck = conn.prepareStatement(checkSql)) {
-                psCheck.setString(1, userId);
+                psCheck.setString(1, user.getIdUser());
                 psCheck.setString(2, idBag);
                 try (ResultSet rs = psCheck.executeQuery()) {
                     if (rs.next()) {
                         // cập nhật số lượng
                         try (PreparedStatement psUpdate = conn.prepareStatement(updateSql)) {
-                            psUpdate.setString(1, userId);
+                            psUpdate.setString(1, user.getIdUser());
                             psUpdate.setString(2, idBag);
                             psUpdate.executeUpdate();
                         }
                         resJson.put("status", "success");
-                        resJson.put("message", "Đã cập nhật số lượng sản phẩm");
+                        response.setContentType("application/json;charset=UTF-8");
+                        response.getWriter().write("{\"message\":\"Đã thêm vào giỏ hàng!\"}");
                     } else {
                         // thêm mới sản phẩm
                         try (PreparedStatement psInsert = conn.prepareStatement(insertSql)) {
-                            psInsert.setString(1, userId);
+                            psInsert.setString(1, user.getIdUser());
                             psInsert.setString(2, idBag);
                             psInsert.executeUpdate();
                         }

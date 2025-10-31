@@ -537,7 +537,7 @@
                             .then(data => {
                                 // Đổi trạng thái trái tim
                                 heart.classList.toggle('active');
-                                showToast(data.message || (isActive ? "Đã xóa khỏi yêu thích" : "Đã thêm vào yêu thích"));
+                                showToast(data.message);
                             })
                             .catch(() => showToast("Lỗi khi xử lý yêu thích"));
                 }
@@ -548,7 +548,7 @@
                     const name = btn.dataset.name;
                     const idBag = btn.dataset.id;  // lấy IdBag
                     const isInCart = btn.textContent.includes('Đã có');
-                    const url = isInCart ? '/remove_from_cart' : '${pageContext.request.contextPath}/add_to_cart';
+                    const url = isInCart ? '${pageContext.request.contextPath}/remove_from_cart' : '${pageContext.request.contextPath}/add_to_cart';
 
                     fetch(url, {
                         method: 'POST',
@@ -558,7 +558,7 @@
                             .then(res => res.json())
                             .then(data => {
                                 btn.textContent = isInCart ? 'Thêm vào giỏ hàng' : 'Đã có trong giỏ hàng';
-                                showToast("Thêm thành công");
+                                showToast(data.message);
                             }).catch(() => showToast('Lỗi!'));
                 }
             });
@@ -569,6 +569,6 @@
         </script>
 
         <script src="<c:url value='/static/js/tuvan.js'/>"></script>
-        <script>const userEmail = "${sessionScope.user_email}";</script>
+        <script>const userEmail = "${sessionScope.user.email}";</script>
     </body>
 </html>
